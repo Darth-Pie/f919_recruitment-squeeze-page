@@ -881,41 +881,49 @@ a   { color: inherit; }
 /* Stat + link cards */
 .info__cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
   margin-bottom: 3rem;
+  grid-auto-rows: 110px; /* half previous height */
+  align-items: stretch;
+  justify-items: stretch;
 }
 
 .info__card {
   background: rgba(30, 32, 38, 0.60);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
-  padding: 1.5rem 1rem;
+  border-radius: 24px; /* slightly more rounded */
+  padding: 0.75rem 0.6rem; /* reduced padding for smaller size */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 0.45rem;
+  gap: 0.35rem;
   box-shadow:
     inset 1px 1px 0 rgba(255, 255, 255, 0.12),
     inset -1px -1px 0 rgba(0, 0, 0, 0.60),
-    0 4px 16px rgba(0, 0, 0, 0.4);
+    0 4px 12px rgba(0, 0, 0, 0.35);
+  /* Ensure each card fills its grid cell */
+  width: 75%;
+  height: 100%;
+  min-height: 0;
 }
 
 .info__card-value {
   font-family: 'Bebas Neue', 'Impact', sans-serif;
-  font-size: 2.4rem;
+  font-size: 4rem; /* reduced to ~50% */
   letter-spacing: 0.06em;
   color: rgba(255, 255, 255, 0.95);
   line-height: 1;
 }
 
 .info__card-label {
-  font-size: 0.62rem;
-  letter-spacing: 0.26em;
+  font-size: 0.5rem; /* slightly smaller */
+  letter-spacing: 0.2em;
+  font-size: 0.5rem;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .info__card--rsi {
@@ -1019,3 +1027,214 @@ a   { color: inherit; }
   }
 }
 
+/* Utilities and FAQ/About image + cards layout tweaks (reapplied) */
+.fill-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.info__cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 3rem;
+  align-items: stretch;
+}
+
+.info__cards.center-screen {
+  /* remove large viewport min-height to avoid excessive top/bottom space */
+  min-height: auto;
+  padding: 0.75rem 0; /* small vertical padding */
+  align-content: center;
+  justify-content: center;
+  place-items: center;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  /* increased row height (25% larger than previous 88px) */
+  grid-auto-rows: 110px;
+  align-items: start;
+}
+
+
+/* Unified header image sizing: same rendered size for About and FAQ headers */
+.site-header-img {
+  /* prefer a fixed pixel size but remain responsive on very small screens */
+  width: min(720px, 80vw);
+  max-width: 720px;
+  aspect-ratio: 16 / 6;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+/* Ensure header image sits visually above cards and text */
+.site-header-img {
+  position: relative;
+  z-index: 20;
+}
+
+/* ensure image spans the full grid row and uses the same sizing */
+.info__cards > .site-header-img {
+  grid-column: 1 / -1;
+  width: min(720px, 80vw);
+  justify-self: center;
+}
+
+.faq-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.faq-container .site-header-img {
+  display: block;
+  margin: 0 auto 2.5rem;
+  width: min(720px, 80vw);
+}
+
+@media (max-width: 420px) {
+  .site-header-img { width: min(320px, 92vw); }
+  .info__cards > .site-header-img { width: min(320px, 92vw); }
+  .faq-container .site-header-img { width: min(320px, 92vw); }
+}
+
+:root {
+  --bg-card: #12161a;
+  --border-color: #232d35;
+  --border-hover: #3a4b59;
+  --accent-color: #00d2ff;
+  --text-main: #e2e8f0;
+  --text-muted: #94a3b8;
+}
+
+body {
+  background-color: #080b0e;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-main);
+  padding: 2rem;
+}
+
+.faq-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.faq-title {
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+}
+
+.faq-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.faq-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  color: var(--text-main);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faq-trigger:focus-visible {
+  outline: 2px solid var(--accent-color);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.faq-icon {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+/* Pseudo-elements to form a crisp custom "+" icon */
+.faq-icon::before,
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  background-color: var(--text-muted);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Horizontal line */
+.faq-icon::before {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: translateY(-50%);
+}
+
+/* Vertical line */
+.faq-icon::after {
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+/* Active State Styles */
+.faq-trigger[aria-expanded="true"] .faq-icon::before {
+  background-color: var(--accent-color);
+}
+
+.faq-trigger[aria-expanded="true"] .faq-icon::after {
+  transform: translateX(-50%) rotate(90deg);
+  opacity: 0; /* Smoothly hides vertical line to become a minus sign */
+}
+
+.faq-trigger[aria-expanded="true"] {
+  color: #fff;
+}
+
+/* Smooth expanding height animation using CSS Grid */
+.faq-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+}
+
+.faq-trigger[aria-expanded="true"] + .faq-content {
+  grid-template-rows: 1fr;
+}
+
+.faq-content-inner {
+  overflow: hidden;
+}
+
+.faq-content p {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}

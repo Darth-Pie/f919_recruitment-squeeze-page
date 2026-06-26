@@ -200,48 +200,87 @@
       <div class="info__body">
 
         <!-- About -->
+        <img class="site-header-img" src="assets/images/AboutHeader.png" alt=""/>
         <section class="info__about">
           <p class="info__about-text">Fleet 919 is a North America based Star Citizen org with members spread across timezones. We make room for all play styles — whether that's Industrial, FPS, Pilots, or any other game loop Star Citizen has to offer.</p>
           <p class="info__about-text">No time-in-game requirements. Discord is required and voice chat is preferred. We're open to new players and veterans alike who are looking for a down to earth gaming community that understands real life takes precedence.</p>
         </section>
 
         <!-- Stat + link cards -->
-        <div class="info__cards">
-          <div class="info__card">
-            <span class="info__card-value">50+</span>
-            <span class="info__card-label">Members</span>
-          </div>
-          <div class="info__card">
-            <span class="info__card-value">NA</span>
-            <span class="info__card-label">All Timezones</span>
-          </div>
-          <div class="info__card">
-            <span class="info__card-value">18+</span>
-            <span class="info__card-label">Age Requirement</span>
-          </div>
-          <a class="info__card info__card--rsi" href="https://robertsspaceindustries.com/en/orgs/F919" target="_blank" rel="noopener noreferrer">
-            <img class="info__rsi-logo" src="assets/images/Sc-logo-rsi.svg" alt="Roberts Space Industries" />
-            <span class="info__card-label">View Org on RSI</span>
-          </a>
-        </div>
+        <div class="info__cards fill-container center-screen" ALIGN="center">
 
-        <!-- FAQ -->
-        <section class="info__faq">
-          <h3 class="info__faq-heading">FAQ</h3>
-          <div class="info__faq-item">
-            <p class="info__faq-q">Do I have to fly?</p>
-            <p class="info__faq-a">No, we're happy to chauffeur you around.</p>
-          </div>
-          <div class="info__faq-item">
-            <p class="info__faq-q">Are there ranks to climb?</p>
-            <p class="info__faq-a">No. Fleet 919 is built around the idea that no single player is more important than another. This is a community of friends simply playing a game together.</p>
-          </div>
-          <div class="info__faq-item">
-            <p class="info__faq-q">Do you run events?</p>
-            <p class="info__faq-a">Yes. Fleet 919 typically schedules larger events in the evenings on the weekends when the state of the game allows it.</p>
-          </div>
-        </section>
 
+  <div class="info__card">
+    <p class="info__card-value">50+</p>
+    <p class="info__card-label">Members</p>
+  </div>
+
+  <div class="info__card">
+    <p class="info__card-value">NA</p>
+    <p class="info__card-label">All Timezones</p>
+  </div>
+
+  <div class="info__card">
+    <p class="info__card-value">18+</p>
+    <p class="info__card-label">Age Requirement</p>
+  </div>
+
+  <a class="info__card info__card--rsi" href="https://robertsspaceindustries.com/en/orgs/F919" target="_blank" rel="noopener noreferrer">
+    <img class="info__rsi-logo" src="assets/images/Sc-logo-rsi.svg" alt="Roberts Space Industries" />
+    <span class="info__card-label">View Org on RSI</span>
+  </a>
+</div>
+<div class="faq-container">
+  <img class="site-header-img" src="assets/images/FAQHeader.png" alt=""/>
+  
+  <div class="faq-card">
+    <button class="faq-trigger" aria-expanded="false">
+      <span class="faq-question">What is the primary mission of Fleet 919?</span>
+      <span class="faq-icon"></span>
+    </button>
+    <div class="faq-content" aria-hidden="true">
+      <div class="faq-content-inner">
+        <p>Fleet 919 is dedicated to deep-space exploration, tactical security, and robust logistical support. We operate across verified sectors to secure resources, chart anomalies, and provide a unified front for our members.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-card">
+    <button class="faq-trigger" aria-expanded="false">
+      <span class="faq-question">How do I apply to join the ranks?</span>
+      <span class="faq-icon"></span>
+    </button>
+    <div class="faq-content" aria-hidden="true">
+      <div class="faq-content-inner">
+        <p>Applications can be submitted directly through our organization portal. Once submitted, our recruitment officers will review your flight logs and manifest before scheduling a brief introductory briefing.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-card">
+    <button class="faq-trigger" aria-expanded="false">
+      <span class="faq-question">What ship classes are currently prioritizing recruitment?</span>
+      <span class="faq-icon"></span>
+    </button>
+    <div class="faq-content" aria-hidden="true">
+      <div class="faq-content-inner">
+        <p>We are actively seeking pilots specialized in heavy industrial operations, long-range reconnaissance, and multi-crew combat platforms. Specialized hulls from Aegis, Anvil, and Drake are highly valued in our current fleet deployment.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-card">
+    <button class="faq-trigger" aria-expanded="false">
+      <span class="faq-question">Are there mandatory events or operations?</span>
+      <span class="faq-icon"></span>
+    </button>
+    <div class="faq-content" aria-hidden="true">
+      <div class="faq-content-inner">
+        <p>While we encourage participation in weekly fleet maneuvers and scheduled sector patrols, real life always comes first. We maintain a flexible operational schedule to accommodate various time zones and availability.</p>
+      </div>
+    </div>
+  </div>
+</div>
         <div class="info__back-wrap">
           <button class="info__back-btn" onclick="location.reload()">&#8593; Back to the Top</button>
         </div>
