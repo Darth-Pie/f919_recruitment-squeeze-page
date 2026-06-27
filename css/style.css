@@ -1085,12 +1085,14 @@ a   { color: inherit; }
   justify-self: center;
 }
 
-.faq-container {
+.faq-container,
+.code-container {
   max-width: 700px;
   margin: 0 auto;
 }
 
-.faq-container .site-header-img {
+.faq-container .site-header-img,
+.code-container .site-header-img {
   display: block;
   margin: 0 auto 2.5rem;
   width: min(720px, 80vw);
@@ -1099,7 +1101,8 @@ a   { color: inherit; }
 @media (max-width: 420px) {
   .site-header-img { width: min(320px, 92vw); }
   .info__cards > .site-header-img { width: min(320px, 92vw); }
-  .faq-container .site-header-img { width: min(320px, 92vw); }
+  .faq-container .site-header-img,
+  .code-container .site-header-img { width: min(320px, 92vw); }
 }
 
 :root {
@@ -1237,4 +1240,44 @@ body {
   color: var(--text-muted);
   line-height: 1.6;
   font-size: 0.95rem;
+}
+
+.faq-content ul {
+  margin: 0 0 1.25rem 2.5rem;
+  padding: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.faq-content li {
+  margin-bottom: 0.45rem;
+  padding-left: 0.6rem;
+  list-style: disc;
+  list-style-position: outside;
+}
+
+.code-extra-mentions {
+  margin-top: 1rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.code-extra-mentions p {
+  margin: 0 0 0.75rem;
+  color: var(--text-muted);
+}
+
+.code-extra-mentions ul {
+  margin: 0 0 0 2.5rem;
+  padding: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.code-extra-mentions li {
+  margin-bottom: 0.45rem;
+  padding-left: 0.6rem;
+  list-style: disc;
+  list-style-position: outside;
 }

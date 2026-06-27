@@ -507,44 +507,45 @@ function onFirstRefresh() {
 }
 ScrollTrigger.addEventListener('refresh', onFirstRefresh);
 document.addEventListener('DOMContentLoaded', () => {
-  const triggers = document.querySelectorAll('.faq-trigger');
-  // Ensure initial state of content matches aria-expanded attributes
-  triggers.forEach(trigger => {
-    const content = trigger.nextElementSibling;
-    const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
-    if (content) content.setAttribute('aria-hidden', isExpanded ? 'false' : 'true');
+  const containers = document.querySelectorAll('.faq-container, .code-container');
 
-    const toggle = () => {
-      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+  containers.forEach(container => {
+    const triggers = container.querySelectorAll('.faq-trigger');
 
-      // Collapse all other open FAQ cards
-      triggers.forEach(otherTrigger => {
-        if (otherTrigger !== trigger) {
-          otherTrigger.setAttribute('aria-expanded', 'false');
-          if (otherTrigger.nextElementSibling) {
-            otherTrigger.nextElementSibling.setAttribute('aria-hidden', 'true');
+    triggers.forEach(trigger => {
+      const content = trigger.nextElementSibling;
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+      if (content) content.setAttribute('aria-hidden', isExpanded ? 'false' : 'true');
+
+      const toggle = () => {
+        const expanded = trigger.getAttribute('aria-expanded') === 'true';
+
+        triggers.forEach(otherTrigger => {
+          if (otherTrigger !== trigger) {
+            otherTrigger.setAttribute('aria-expanded', 'false');
+            if (otherTrigger.nextElementSibling) {
+              otherTrigger.nextElementSibling.setAttribute('aria-hidden', 'true');
+            }
           }
+        });
+
+        if (expanded) {
+          trigger.setAttribute('aria-expanded', 'false');
+          if (content) content.setAttribute('aria-hidden', 'true');
+        } else {
+          trigger.setAttribute('aria-expanded', 'true');
+          if (content) content.setAttribute('aria-hidden', 'false');
+        }
+      };
+
+      trigger.addEventListener('click', toggle);
+
+      trigger.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          toggle();
         }
       });
-
-      // Toggle this one
-      if (expanded) {
-        trigger.setAttribute('aria-expanded', 'false');
-        if (content) content.setAttribute('aria-hidden', 'true');
-      } else {
-        trigger.setAttribute('aria-expanded', 'true');
-        if (content) content.setAttribute('aria-hidden', 'false');
-      }
-    };
-
-    trigger.addEventListener('click', toggle);
-
-    // Keyboard: Enter or Space should toggle
-    trigger.addEventListener('keydown', (ev) => {
-      if (ev.key === 'Enter' || ev.key === ' ') {
-        ev.preventDefault();
-        toggle();
-      }
     });
   });
 });
