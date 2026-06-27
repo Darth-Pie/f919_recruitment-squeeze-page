@@ -283,7 +283,7 @@ a   { color: inherit; }
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: rgba(255, 80, 0, 0.95);
-  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.8);
+  -webkit-text-stroke: 0.5px rgba(195, 187, 218, 0.8);
   text-shadow: 0 0 24px rgba(74, 102, 179, 0.582);
 }
 
@@ -447,7 +447,7 @@ a   { color: inherit; }
 }
 
 .fleet-img {
-  height: clamp(56px, 8vh, 80px);
+  height: clamp(112px, 16vh, 160px);
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
