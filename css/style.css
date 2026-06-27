@@ -283,7 +283,8 @@ a   { color: inherit; }
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: rgba(255, 80, 0, 0.95);
-  text-shadow: 0 0 24px rgba(255, 80, 0, 0.65);
+  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 24px rgba(74, 102, 179, 0.582);
 }
 
 /* ================================================================
